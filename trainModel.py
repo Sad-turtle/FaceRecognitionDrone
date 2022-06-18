@@ -11,7 +11,7 @@ recognizer = cv2.face.LBPHFaceRecognizer_create()
 detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml");
 
 def getImagesAndLabels(path):
-    imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+    imagePaths = [os.path.join(path, f) for f in os.listdir(path)]
     faceSamples = []
     ids = []
     for imagePath in imagePaths:
@@ -25,7 +25,8 @@ def getImagesAndLabels(path):
             ids.append(id)
     return faceSamples, ids
 
-print ("\n Training faces...")
+
+print("\n Training faces...")
 faces, ids = getImagesAndLabels(path)
 recognizer.train(faces, np.array(ids))
 
